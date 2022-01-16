@@ -1,14 +1,18 @@
 import React from "react";
 import Player from "./Player";
+import { addWinsToPlayers, preparePlayerData } from "../helpers/playerHelpers";
 import playerData from "../data/playerData";
 
-function PlayerList(props){
-  return(
+
+function PlayerList(props) {
+  const parsedPlayersList = playerData.map(player => <Player {...player} />)
+
+  return (
     <section className="PlayerList">
       <h1>Current participating players</h1>
-      <Player />
+      { parsedPlayersList }
     </section>
-  )
+  );
 }
 
 export default PlayerList;

@@ -1,16 +1,12 @@
 import React from "react";
 import Match from "./Match";
-import playerData from "../data/playerData";
-import matchData from '../data/matchData';
-import { preparePlayerData, addWinsToPlayers } from '../helpers/playerHelpers';
+import matchData from "../data/matchData";
 
-function MatchList(props){
-  return(
-    <section className="PlayerList MatchList">
-      <h1>Current Match list</h1>
-      <Match players={oneMatch, players} winner={oneMatch, winner} scoreDifference={oneMatch, scoreDifference} />
-    </section>
-  )
+
+function MatchList(props) {
+  const parsedMatches = matchData.map(match => <Match key={match.matchNumber}  {...match} />);
+
+  return({parsedMatches});
 }
 
 export default MatchList;
